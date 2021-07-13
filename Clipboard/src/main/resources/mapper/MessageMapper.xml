@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ke.clipboard.dao.MessageDao">
+
+    <select id="find" resultType="com.ke.clipboard.model.Message">
+        select * from message
+    </select>
+    <select id="insert" resultType="com.ke.clipboard.model.Message">
+        insert into message (msg,addTime) VALUES (#{msg},#{addTime})
+    </select>
+</mapper>
