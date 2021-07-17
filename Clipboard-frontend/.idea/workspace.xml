@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="a385a269-910d-4847-ad1f-249bf0e547d6" name="Default Changelist" comment="first upload">
+      <change afterPath="$PROJECT_DIR$/.babelrc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.editorconfig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.eslintignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.eslintrc.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.postcssrc.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/build.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/check-versions.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/logo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/utils.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/vue-loader.conf.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/webpack.base.conf.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/webpack.dev.conf.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/webpack.prod.conf.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/dev.env.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/prod.env.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/test.env.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/App.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/logo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/HelloWorld.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/User.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/router/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/.gitkeep" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/e2e/custom-assertions/elementCount.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/e2e/nightwatch.conf.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/e2e/runner.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/e2e/specs/test.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/unit/.eslintrc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/unit/jest.conf.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/unit/setup.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/unit/specs/HelloWorld.spec.js" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1v9oHoFtQ3d6IiNifL8nwy4ZrrT" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="settings.editor.selected.configurable" value="MavenSettings" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="a385a269-910d-4847-ad1f-249bf0e547d6" name="Default Changelist" comment="" />
+      <created>1625983580542</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1625983580542</updated>
+      <workItem from="1625983582834" duration="197000" />
+      <workItem from="1625983792033" duration="1482000" />
+      <workItem from="1625988125403" duration="1382000" />
+      <workItem from="1625990103695" duration="2813000" />
+      <workItem from="1626097390343" duration="2041000" />
+      <workItem from="1626519154417" duration="1253000" />
+      <workItem from="1626520446452" duration="415000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="first upload" />
+    <option name="LAST_COMMIT_MESSAGE" value="first upload" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="483" y="264" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1625983764770">
+      <screen x="0" y="0" width="1493" height="893" />
+    </state>
+    <state x="483" y="264" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1493.893@0.0.1493.893" timestamp="1625983764770" />
+    <state x="357" y="41" key="CommitChangelistDialog2" timestamp="1626520598889">
+      <screen x="0" y="0" width="1493" height="893" />
+    </state>
+    <state x="357" y="41" key="CommitChangelistDialog2/0.0.1493.893@0.0.1493.893" timestamp="1626520598889" />
+    <state x="519" y="156" key="FileChooserDialogImpl" timestamp="1626520469945">
+      <screen x="0" y="0" width="1493" height="893" />
+    </state>
+    <state x="519" y="156" key="FileChooserDialogImpl/0.0.1493.893@0.0.1493.893" timestamp="1626520469945" />
+    <state x="242" y="43" key="SettingsEditor" timestamp="1626520346606">
+      <screen x="0" y="0" width="1493" height="893" />
+    </state>
+    <state x="242" y="43" key="SettingsEditor/0.0.1493.893@0.0.1493.893" timestamp="1626520346606" />
+    <state x="428" y="46" width="638" height="801" key="find.popup" timestamp="1626519606128">
+      <screen x="0" y="0" width="1493" height="893" />
+    </state>
+    <state x="428" y="46" width="638" height="801" key="find.popup/0.0.1493.893@0.0.1493.893" timestamp="1626519606128" />
+  </component>
+</project>
