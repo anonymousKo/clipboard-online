@@ -12,17 +12,17 @@ import java.util.Date;
 import java.util.List;
 
 @RestController
-@RequestMapping(value = "/msg")
 public class TextController {
     @Autowired
     MessageDao messageDao;
 
-    @RequestMapping(value = "/test")
-    public  boolean add(@RequestBody String message) {
+    @RequestMapping(value = "/add")
+    public  List<Message> add(@RequestBody String message) {
         Date addTime = new Date();
-        return(messageDao.insert(message,addTime));
+        messageDao.insert(message,addTime);
+        return (messageDao.find());
     }
-    @GetMapping("/findAll")
+    @GetMapping("/findall")
     public List<Message> findAll(){
         return messageDao.find();
     }

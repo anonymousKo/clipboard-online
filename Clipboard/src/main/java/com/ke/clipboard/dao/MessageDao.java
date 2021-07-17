@@ -11,5 +11,5 @@ import java.util.List;
 @Repository("MessageDao")
 public interface MessageDao {
     public List<Message> find();
-    public boolean insert(String msg, Date addTime);
+    public void insert(String msg, Date addTime);
 }
