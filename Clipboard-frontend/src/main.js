@@ -5,10 +5,10 @@ import App from './App'
 import router from './router'
 import axios from 'axios'
 import VueAxios from 'vue-axios'
+import ElementUI from 'element-ui'
 Vue.use(VueAxios, axios)
 Vue.use(router)
-
-
+Vue.use(ElementUI)
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */
@@ -18,4 +18,3 @@ new Vue({
   components: { App },
   template: '<App/>'
 })
-
