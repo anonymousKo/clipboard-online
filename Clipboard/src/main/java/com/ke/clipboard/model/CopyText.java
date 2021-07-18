@@ -6,8 +6,8 @@ import java.io.Serializable;
 import java.util.Date;
 
 @Data
-public class Message implements Serializable {
+public class CopyText implements Serializable {
     private int id;
     private String msg;
-    private Date addTime;
+    private String addTime;
 }
