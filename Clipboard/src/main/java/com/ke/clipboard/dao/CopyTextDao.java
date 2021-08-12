@@ -9,6 +9,7 @@ import java.util.List;
 @Mapper
 @Repository("MessageDao")
 public interface CopyTextDao {
-    public List<CopyText> find();
-    public void insert(String msg, String addTime);
+    List<CopyText> find();
+    void insert(String msg, String addTime);
+    void deletePreviousData(String deleteDate);
 }

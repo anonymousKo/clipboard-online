@@ -2,11 +2,13 @@ package com.ke.clipboard.service;
 
 import com.ke.clipboard.dao.CopyTextDao;
 import com.ke.clipboard.model.CopyText;
+import com.ke.clipboard.util.DateUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
-import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Comparator;
 import java.util.Date;
 import java.util.List;
@@ -17,11 +19,11 @@ import java.util.stream.Collectors;
 public class CopyTextServiceImpl implements CopyTextService {
     @Autowired
     CopyTextDao copyTextDao;
+    @Autowired
+    DateUtil dateUtil;
     @Override
     public void insert(String msg){
-        Date addTime = new Date();
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        String formatDate = simpleDateFormat.format(addTime);
+        String formatDate=dateUtil.dateFormat(new Date());
         copyTextDao.insert(msg, formatDate);
         log.info("add text: {}, date: {}, " ,msg, formatDate);
     }
@@ -29,7 +31,17 @@ public class CopyTextServiceImpl implements CopyTextService {
     public List<CopyText> find(){
         return copyTextDao.find().stream()
                 .sorted(Comparator.comparing(CopyText::getAddTime).reversed())
-                .collect(Collectors.toList());
+                .limit(15).collect(Collectors.toList());
     }
 
+    @Override
+    @Scheduled(cron = "1-59 0-2 * * * ")
+    public void deletePreviousData(){
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(new Date());
+        calendar.add(Calendar.DAY_OF_MONTH,-7);
+        String deleteDate =dateUtil.dateFormat(calendar.getTime());
+        copyTextDao.deletePreviousData(deleteDate);
+        log.info("Delete data before {} ",deleteDate);
+    }
 }
