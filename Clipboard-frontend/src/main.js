@@ -6,10 +6,13 @@ import router from './router'
 import axios from 'axios'
 import VueAxios from 'vue-axios'
 import ElementUI from 'element-ui'
+import 'element-ui/lib/theme-chalk/index.css'
 Vue.use(VueAxios, axios)
 Vue.use(router)
 Vue.use(ElementUI)
 Vue.config.productionTip = false
+axios.defaults.baseURL = process.env.API_ROOT
+console.log(axios.defaults.baseURL)
 
 /* eslint-disable no-new */
 new Vue({
