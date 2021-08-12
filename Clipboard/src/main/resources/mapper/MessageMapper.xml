@@ -11,4 +11,7 @@
     <select id="insert" resultType="com.ke.clipboard.model.CopyText">
         insert into message (msg,addTime) VALUES (#{msg},#{addTime})
     </select>
+    <select id="deletePreviousData" resultType="com.ke.clipboard.model.CopyText">
+        delete from message where addTime &lt; #{deleteDate};
+    </select>
 </mapper>
