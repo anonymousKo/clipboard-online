@@ -72,7 +72,6 @@ export default {
         addTime:"",
         msg:this.addText
       }
-      this.textList.unshift("",newText)
       this.axios({
           method: 'post',
           url: '/add',
@@ -85,6 +84,7 @@ export default {
       ).then((resp) => {
         // eslint-disable-next-line eqeqeq
         if (resp.data.code == '200') {
+          this.textList.unshift("",newText)
           console.log('list all text.')
         }
       })
