@@ -19,11 +19,9 @@ import java.util.stream.Collectors;
 public class CopyTextServiceImpl implements CopyTextService {
     @Autowired
     CopyTextDao copyTextDao;
-    @Autowired
-    DateUtil dateUtil;
     @Override
     public void insert(String msg){
-        String formatDate=dateUtil.dateFormat(new Date());
+        String formatDate=DateUtil.dateFormat(new Date());
         copyTextDao.insert(msg, formatDate);
         log.info("add text: {}, date: {}, " ,msg, formatDate);
     }
@@ -40,7 +38,7 @@ public class CopyTextServiceImpl implements CopyTextService {
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(new Date());
         calendar.add(Calendar.DAY_OF_MONTH,-7);
-        String deleteDate =dateUtil.dateFormat(calendar.getTime());
+        String deleteDate =DateUtil.dateFormat(calendar.getTime());
         copyTextDao.deletePreviousData(deleteDate);
         log.info("Delete data before {} ",deleteDate);
     }

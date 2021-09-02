@@ -7,9 +7,8 @@ import java.util.Date;
 
 @Component
 public class DateUtil {
-    public String dateFormat(Date date){
+    public static String dateFormat(Date date){
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        String s = simpleDateFormat.format(date);
-        return s;
+        return simpleDateFormat.format(date);
     }
 }
