@@ -31,7 +31,7 @@ public class CopyTextServiceImpl implements CopyTextService {
     @Override
     public List<CopyText> find(Integer count){
         if (count != null){
-            queryCount = count;
+            return copyTextDao.find(count);
         }
         return copyTextDao.find(queryCount);
     }
