@@ -5,20 +5,23 @@ import com.ke.clipboard.model.CopyText;
 import com.ke.clipboard.util.DateUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
 import java.util.Calendar;
-import java.util.Comparator;
 import java.util.Date;
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Slf4j
 @Service
 public class CopyTextServiceImpl implements CopyTextService {
     @Autowired
     CopyTextDao copyTextDao;
+
+    @Value("${queryCount}")
+    private int queryCount;
+
     @Override
     public void insert(String msg){
         String formatDate=DateUtil.dateFormat(new Date());
@@ -26,10 +29,11 @@ public class CopyTextServiceImpl implements CopyTextService {
         log.info("add text: {}, date: {}, " ,msg, formatDate);
     }
     @Override
-    public List<CopyText> find(){
-        return copyTextDao.find().stream()
-                .sorted(Comparator.comparing(CopyText::getAddTime).reversed())
-                .limit(15).collect(Collectors.toList());
+    public List<CopyText> find(Integer count){
+        if (count != null){
+            queryCount = count;
+        }
+        return copyTextDao.find(queryCount);
     }
 
     @Override

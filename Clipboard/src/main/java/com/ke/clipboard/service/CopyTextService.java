@@ -6,7 +6,7 @@ import java.text.ParseException;
 import java.util.List;
 
 public interface CopyTextService {
-     List<CopyText> find();
+     List<CopyText> find(Integer count);
      void insert(String msg) throws ParseException;
      void deletePreviousData();
 }

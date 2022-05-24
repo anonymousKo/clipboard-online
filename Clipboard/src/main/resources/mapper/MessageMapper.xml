@@ -6,7 +6,7 @@
 <mapper namespace="com.ke.clipboard.dao.CopyTextDao">
 
     <select id="find" resultType="com.ke.clipboard.model.CopyText">
-        select * from message
+        select * from message order by addTime desc limit  #{limitCount}
     </select>
     <select id="insert" resultType="com.ke.clipboard.model.CopyText">
         insert into message (msg,addTime) VALUES (#{msg},#{addTime})

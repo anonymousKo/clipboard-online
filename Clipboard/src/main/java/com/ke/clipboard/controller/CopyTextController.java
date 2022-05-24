@@ -5,10 +5,7 @@ import com.ke.clipboard.model.CopyText;
 import com.ke.clipboard.service.CopyTextService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.text.ParseException;
 import java.util.List;
@@ -26,8 +23,8 @@ public class CopyTextController {
         return Result.success();
     }
     @GetMapping("/findall")
-    public Result<List<CopyText>> findAll(){
-        return Result.success(copyTextService.find());
+    public Result<List<CopyText>> findAll(@RequestParam(value = "count", defaultValue = "") Integer count){
+        return Result.success(copyTextService.find(count));
     }
 
 }
