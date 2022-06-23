@@ -17,7 +17,7 @@ public class CopyTextController {
     CopyTextService copyTextService;
 
     @RequestMapping(value = "/add")
-    public  Result<List<CopyText>> add(@RequestBody String msg) throws ParseException {
+    public  Result<Void> add(@RequestBody String msg) throws ParseException {
         log.info("received request: {}" , msg);
         copyTextService.insert(msg);
         return Result.success();
@@ -25,6 +25,11 @@ public class CopyTextController {
     @GetMapping("/findall")
     public Result<List<CopyText>> findAll(@RequestParam(value = "count", defaultValue = "") Integer count){
         return Result.success(copyTextService.find(count));
+    }
+
+    @GetMapping("/query")
+    public Result<List<CopyText>> findByParam(@RequestParam(value = "msg", defaultValue = "") String msg){
+        return Result.success(copyTextService.query(msg));
     }
 
 }

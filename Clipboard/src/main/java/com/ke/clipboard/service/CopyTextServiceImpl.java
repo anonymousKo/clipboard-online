@@ -6,7 +6,6 @@ import com.ke.clipboard.util.DateUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
 import java.util.Calendar;
@@ -24,9 +23,8 @@ public class CopyTextServiceImpl implements CopyTextService {
 
     @Override
     public void insert(String msg){
-        String formatDate=DateUtil.dateFormat(new Date());
-        copyTextDao.insert(msg, formatDate);
-        log.info("add text: {}, date: {}, " ,msg, formatDate);
+        copyTextDao.insert(msg, new Date());
+        log.info("add text: {} " ,msg);
     }
     @Override
     public List<CopyText> find(Integer count){
@@ -36,14 +34,18 @@ public class CopyTextServiceImpl implements CopyTextService {
         return copyTextDao.find(queryCount);
     }
 
-    @Override
-    @Scheduled(cron = "1-59 0-2 * * * ")
-    public void deletePreviousData(){
+//    @Scheduled(cron = "1-59 0-2 * * * ")
+    private void deletePreviousData(){
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(new Date());
         calendar.add(Calendar.DAY_OF_MONTH,-7);
         String deleteDate =DateUtil.dateFormat(calendar.getTime());
         copyTextDao.deletePreviousData(deleteDate);
         log.info("Delete data before {} ",deleteDate);
+    }
+
+    @Override
+    public List<CopyText> query(String msg){
+        return copyTextDao.query(msg);
     }
 }

@@ -8,5 +8,5 @@ import java.util.List;
 public interface CopyTextService {
      List<CopyText> find(Integer count);
      void insert(String msg) throws ParseException;
-     void deletePreviousData();
+     List<CopyText> query(String msg);
 }
