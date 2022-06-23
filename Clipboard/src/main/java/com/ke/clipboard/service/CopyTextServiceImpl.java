@@ -48,4 +48,22 @@ public class CopyTextServiceImpl implements CopyTextService {
     public List<CopyText> query(String msg){
         return copyTextDao.query(msg);
     }
+
+    @Override
+    public void remark(Integer id) {
+        if (id == null) {
+
+        }
+        CopyText copyText = copyTextDao.queryById(id);
+        if (copyText == null ){
+
+        }
+        copyText.setIsMarked((copyText.getIsMarked() + 1)%2);
+        copyTextDao.update(copyText);
+    }
+
+    @Override
+    public List<CopyText> queryMarked() {
+        return copyTextDao.queryMarked();
+    }
 }

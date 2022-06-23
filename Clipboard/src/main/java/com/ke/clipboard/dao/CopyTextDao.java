@@ -14,4 +14,7 @@ public interface CopyTextDao {
     void insert(String msg, Date addTime);
     void deletePreviousData(String deleteDate);
     List<CopyText> query(String msg);
+    CopyText queryById(Integer id);
+    void update(CopyText copyText);
+    List<CopyText> queryMarked();
 }

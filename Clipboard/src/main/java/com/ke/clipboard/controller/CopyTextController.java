@@ -32,4 +32,15 @@ public class CopyTextController {
         return Result.success(copyTextService.query(msg));
     }
 
+    @GetMapping("/remark")
+    public Result<Void> remark(@RequestParam(value = "id") Integer id){
+        copyTextService.remark(id);
+        return Result.success();
+    }
+
+    @GetMapping("/queryMarked")
+    public Result<List<CopyText>> queryMarked(){
+        return Result.success(copyTextService.queryMarked());
+    }
+
 }

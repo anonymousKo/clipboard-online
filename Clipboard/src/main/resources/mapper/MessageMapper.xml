@@ -4,9 +4,15 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.ke.clipboard.dao.CopyTextDao">
+    <resultMap id="copyTextMap" type="com.ke.clipboard.model.CopyText">
+        <result property="id" column="id"/>
+        <result property="msg" column="msg"/>
+        <result property="addTime" column="add_time"/>
+        <result property="isMarked" column="is_marked"/>
+    </resultMap>
 
     <select id="find" resultType="com.ke.clipboard.model.CopyText">
-        select * from message order by add_time desc limit  #{limitCount}
+        select id,msg,add_time as addTime,is_marked as isMarked from message order by add_time desc limit  #{limitCount}
     </select>
     <select id="insert" resultType="com.ke.clipboard.model.CopyText">
         insert into message (msg,add_time) VALUES (#{msg},#{addTime})
@@ -21,5 +27,23 @@
                 AND msg like CONCAT('%', #{msg} + '%');
             </if>
          </where>
+    </select>
+
+    <select id="queryById" resultType="com.ke.clipboard.model.CopyText">
+        select id,msg,add_time as addTime,is_marked as isMarked from message
+        <where>
+            <if test="id != null">
+                AND id = #{id};
+            </if>
+        </where>
+    </select>
+
+    <update id="update" >
+        UPDATE message set is_marked = #{isMarked} where id = #{id}
+    </update>
+
+    <select id="queryMarked" resultType="com.ke.clipboard.model.CopyText">
+        select id,msg,add_time as addTime,is_marked as isMarked from message
+            where is_marked = 1
     </select>
 </mapper>

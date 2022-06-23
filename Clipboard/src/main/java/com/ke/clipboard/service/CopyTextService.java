@@ -9,4 +9,6 @@ public interface CopyTextService {
      List<CopyText> find(Integer count);
      void insert(String msg) throws ParseException;
      List<CopyText> query(String msg);
+     void remark(Integer id);
+     List<CopyText> queryMarked();
 }
