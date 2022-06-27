@@ -1,5 +1,6 @@
 package com.ke.clipboard.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
 
 import javax.persistence.Column;
@@ -20,6 +21,7 @@ public class CopyText implements Serializable {
     private String msg;
 
     @Column(nullable = false)
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone="GMT+8")
     private Date addTime;
 
     @Column(columnDefinition = "integer(1) not null default 0")
