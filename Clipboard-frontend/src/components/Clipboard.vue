@@ -18,6 +18,20 @@
       <el-button type="success" size="medium" @click="getCopy" round>一键复制</el-button>
     </div>
 
+    <div>
+      <el-input-number
+        v-model="listNum" @change="handleChange" :min="1" :step="5"  size="mini">
+      </el-input-number>
+
+      <el-tooltip :content="'is only marked: ' + isOnlyMarked" placement="top">
+        <el-switch
+          v-model="isOnlyMarked"
+          @change="onlyMarked">
+        </el-switch>
+      </el-tooltip>
+    </div>
+
+
     <el-table
       id="display"
       :data="textList"
@@ -25,27 +39,50 @@
     >
       <el-table-column
         prop="addTime"
-        label="日期"
+        label="date"
         min-width="100"
         >
       </el-table-column>
       <el-table-column
         prop="msg"
-        label="姓名"
+        label="message"
         min-width="250">
+      </el-table-column>
+      <el-table-column
+        prop="isMarked"
+        label="isMarked"
+        min-width="50">
+        <template slot-scope="scope">
+          <el-button
+            type="primary" icon="el-icon-star-on" v-if="scope.row.isMarked==1" circle
+            @click="remark(scope.row)">
+          </el-button>
+          <el-button icon="el-icon-star-off" v-else circle
+             @click="remark(scope.row)">
+          </el-button>
+        </template>
       </el-table-column>
         </el-table>
   </div>
 </template>
 
 <script>
+  let listNum = 15;
+  let isOnlyMarked = false;
 export default {
   name: 'clipboard',
   data () {
     return {
+      listNum,
+      isOnlyMarked,
       addText: '',
       textList: [
-
+        {
+          id:'',
+          addTime:'',
+          msg:'',
+          isMarked:'',
+        }
       ],
       firstItem: "",
     }
@@ -57,12 +94,26 @@ export default {
   methods: {
     listAll () {
       const _this = this
-      this.axios.get("/findall").then(function (resp) {
-        // 回调函数中的this指的是回调
-        // 把data数据赋给_this，即vue对象
-        _this.textList = resp.data.data
-        _this.firstItem = _this.textList[0].msg
+      var url = "/findall";
+      if (listNum != null) {
+        url = "/findall" + "?count=" + listNum + "&isOnlyMarked=" + isOnlyMarked
+      }
+      this.axios.get(url).then(function (resp) {
+        if (resp.data.code == '200') {
+          _this.textList = resp.data.data
+          if (_this.textList.length > 0) {
+            _this.firstItem = _this.textList[0].msg
+          }
+        }
       })
+    },
+    handleChange(value) {
+      listNum = value;
+      this.listAll();
+    },
+    onlyMarked() {
+      isOnlyMarked = !isOnlyMarked;
+      this.listAll();
     },
     onSubmit: function () {
       console.log(this.addText)
@@ -88,6 +139,27 @@ export default {
           console.log('list all text.')
         }
       })
+    },
+    remark: function (row) {
+      this.$confirm('是否收藏?', '提示', {
+        confirmButtonText: '确定',
+        cancelButtonText: '取消',
+        type: 'warning'
+      }).then(() => {
+      var id = row.id;
+      var url = "/remark" + "?id=" + id;
+      this.axios.get(url).then(function (resp) {
+        if (resp.data.code == '200') {
+          row.isMarked = (row.isMarked + 1) % 2
+          console.log('remark success')
+        }
+      });
+    }).catch(() => {
+      this.$message({
+        type: 'info',
+        message: '已取消'
+      });
+    });
     },
     async getCopy () {
       let tx = document.getElementById('currentText')
