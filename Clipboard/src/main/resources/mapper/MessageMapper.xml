@@ -44,6 +44,6 @@
 
     <select id="queryMarked" resultType="com.ke.clipboard.model.CopyText">
         select id,msg,add_time as addTime,is_marked as isMarked from message
-            where is_marked = 1
+            where is_marked = 1 order by add_time desc limit  #{count}
     </select>
 </mapper>

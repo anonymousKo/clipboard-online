@@ -27,11 +27,14 @@ public class CopyTextServiceImpl implements CopyTextService {
         log.info("add text: {} " ,msg);
     }
     @Override
-    public List<CopyText> find(Integer count){
-        if (count != null){
+    public List<CopyText> find(Integer count, boolean isOnlyMarked){
+        if (!isOnlyMarked){
+            if (count == null){
+                count = queryCount;
+            }
             return copyTextDao.find(count);
         }
-        return copyTextDao.find(queryCount);
+        return copyTextDao.queryMarked(count);
     }
 
 //    @Scheduled(cron = "1-59 0-2 * * * ")
@@ -60,10 +63,5 @@ public class CopyTextServiceImpl implements CopyTextService {
         }
         copyText.setIsMarked((copyText.getIsMarked() + 1)%2);
         copyTextDao.update(copyText);
-    }
-
-    @Override
-    public List<CopyText> queryMarked() {
-        return copyTextDao.queryMarked();
     }
 }

@@ -16,5 +16,5 @@ public interface CopyTextDao {
     List<CopyText> query(String msg);
     CopyText queryById(Integer id);
     void update(CopyText copyText);
-    List<CopyText> queryMarked();
+    List<CopyText> queryMarked(int count);
 }

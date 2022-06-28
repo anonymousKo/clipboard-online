@@ -23,8 +23,10 @@ public class CopyTextController {
         return Result.success();
     }
     @GetMapping("/findall")
-    public Result<List<CopyText>> findAll(@RequestParam(value = "count", defaultValue = "") Integer count){
-        return Result.success(copyTextService.find(count));
+    public Result<List<CopyText>> findAll(
+            @RequestParam(value = "count", defaultValue = "") Integer count,
+            @RequestParam(value = "isOnlyMarked", defaultValue = "false") Boolean isOnlyMarked){
+        return Result.success(copyTextService.find(count, isOnlyMarked));
     }
 
     @GetMapping("/query")
@@ -37,10 +39,4 @@ public class CopyTextController {
         copyTextService.remark(id);
         return Result.success();
     }
-
-    @GetMapping("/queryMarked")
-    public Result<List<CopyText>> queryMarked(){
-        return Result.success(copyTextService.queryMarked());
-    }
-
 }
