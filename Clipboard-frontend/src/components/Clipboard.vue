@@ -9,6 +9,7 @@
         v-model="addText">
       </el-input>
       <el-button type="primary" size="medium" @click="onSubmit" round>Add</el-button>
+      <el-button type="info" size="medium" @click="clear" round>Clear</el-button>
       <el-input
         id = "currentText"
         type="textarea"
@@ -81,11 +82,18 @@ export default {
       firstItem: "",
     }
   },
+  mounted() {
+    this.getPaste();
+  },
   // 页面初始化完成后要加载的东西
   created () {
     this.listAll()
   },
   methods: {
+    async getPaste() {
+      var val = await navigator.clipboard.readText();
+      this.addText = val;
+    },
     listAll () {
       const _this = this
       var url = "/findall";
@@ -133,6 +141,9 @@ export default {
           console.log('list all text.')
         }
       })
+    },
+    clear(){
+      this.addText = ""
     },
     remark: function (row) {
       this.$confirm('是否收藏?', '提示', {
