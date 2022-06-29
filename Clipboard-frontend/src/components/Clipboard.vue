@@ -77,12 +77,6 @@ export default {
       isOnlyMarked,
       addText: '',
       textList: [
-        {
-          id:'',
-          addTime:'',
-          msg:'',
-          isMarked:'',
-        }
       ],
       firstItem: "",
     }
@@ -117,7 +111,6 @@ export default {
     },
     onSubmit: function () {
       console.log(this.addText)
-      document.getElementById("currentText").value=this.addText
       // console.log(this.textList[1])
       var newText={
         addTime:"",
@@ -135,7 +128,8 @@ export default {
       ).then((resp) => {
         // eslint-disable-next-line eqeqeq
         if (resp.data.code == '200') {
-          this.textList.unshift("",newText)
+          document.getElementById("currentText").value=this.addText
+          this.textList.unshift(newText)
           console.log('list all text.')
         }
       })
