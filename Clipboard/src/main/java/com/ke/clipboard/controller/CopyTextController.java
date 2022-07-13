@@ -17,10 +17,10 @@ public class CopyTextController {
     CopyTextService copyTextService;
 
     @RequestMapping(value = "/add")
-    public  Result<Void> add(@RequestBody String msg) throws ParseException {
+    public  Result<Integer> add(@RequestBody String msg) throws ParseException {
         log.info("received request: {}" , msg);
-        copyTextService.insert(msg);
-        return Result.success();
+        int id = copyTextService.insert(msg);
+        return Result.success(id);
     }
     @GetMapping("/findall")
     public Result<List<CopyText>> findAll(

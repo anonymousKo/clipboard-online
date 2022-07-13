@@ -22,9 +22,13 @@ public class CopyTextServiceImpl implements CopyTextService {
     private int queryCount;
 
     @Override
-    public void insert(String msg){
-        copyTextDao.insert(msg, new Date());
+    public int insert(String msg){
+        CopyText copyText = new CopyText();
+        copyText.setMsg(msg);
+        copyText.setAddTime(new Date());
+        copyTextDao.insert(copyText);
         log.info("add text: {} " ,msg);
+        return copyText.getId();
     }
     @Override
     public List<CopyText> find(Integer count, boolean isOnlyMarked){

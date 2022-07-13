@@ -137,6 +137,8 @@ export default {
         // eslint-disable-next-line eqeqeq
         if (resp.data.code == '200') {
           document.getElementById("currentText").value=this.addText
+          newText.id = resp.data.data;
+          newText.isMarked = 0;
           this.textList.unshift(newText)
           console.log('list all text.')
         }

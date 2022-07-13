@@ -14,9 +14,9 @@
     <select id="find" resultType="com.ke.clipboard.model.CopyText">
         select id,msg,add_time as addTime,is_marked as isMarked from message order by add_time desc limit  #{limitCount}
     </select>
-    <select id="insert" resultType="com.ke.clipboard.model.CopyText">
+    <insert id="insert" useGeneratedKeys="true" keyProperty="id" parameterType="com.ke.clipboard.model.CopyText">
         insert into message (msg,add_time) VALUES (#{msg},#{addTime})
-    </select>
+    </insert>
     <select id="deletePreviousData" resultType="com.ke.clipboard.model.CopyText">
         delete from message where add_time &lt; #{deleteDate};
     </select>

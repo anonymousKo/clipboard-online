@@ -7,7 +7,7 @@ import java.util.List;
 
 public interface CopyTextService {
      List<CopyText> find(Integer count, boolean isOnlyMarked);
-     void insert(String msg) throws ParseException;
+     int insert(String msg) throws ParseException;
      List<CopyText> query(String msg);
      void remark(Integer id);
 }
