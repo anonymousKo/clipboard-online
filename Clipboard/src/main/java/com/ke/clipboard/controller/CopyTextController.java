@@ -51,6 +51,7 @@ public class CopyTextController {
     public String getVideoFormats(@RequestParam("url") String videoUrl)  {
         try {
             String command = String.format("youtube-dl -F %s", videoUrl);
+            log.info("command:{}", command);
             Process process = Runtime.getRuntime().exec(command);
 
             BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
@@ -83,6 +84,7 @@ public class CopyTextController {
                 command = String.format("youtube-dl -o %s/\"%%(title)s.%%(ext)s\" -f %s %s",
                         directory, formatCode, videoUrl);
             }
+            log.info("command:{}", command);
 
             ProcessBuilder processBuilder;
             if (os.contains("win")) {
