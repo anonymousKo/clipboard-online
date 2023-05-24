@@ -128,7 +128,7 @@ public class VideoController {
             log.error("file not found -> {}", id);
             return ResponseEntity.notFound().build();
         }
-        String filename = fileDTO.get().getName();
+        String filename = fileDTO.get().getTrueName();
         File file = new File(directory + File.separator + filename);
 
         if (file.exists()) {

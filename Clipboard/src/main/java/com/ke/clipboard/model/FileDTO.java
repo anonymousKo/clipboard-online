@@ -25,4 +25,8 @@ public class FileDTO {
         }
         return name;
     }
+
+    public String getTrueName() {
+        return name;
+    }
 }
