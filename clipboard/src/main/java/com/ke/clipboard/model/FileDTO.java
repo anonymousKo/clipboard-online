@@ -26,7 +26,7 @@ public class FileDTO {
         return name;
     }
 
-    public String getTrueName() {
+    public String trueName() {
         return name;
     }
 }
