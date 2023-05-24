@@ -37,7 +37,7 @@ public class VideoController {
     @GetMapping("/formats")
     public String getVideoFormats(@RequestParam("url") String videoUrl)  {
         try {
-            String command = String.format("youtube-dl -F %s", videoUrl);
+            String command = String.format("yt-dlp -F %s", videoUrl);
             log.info("command:{}", command);
             Process process = Runtime.getRuntime().exec(command);
 
@@ -65,10 +65,10 @@ public class VideoController {
             String command;
 
             if (os.contains("win")) {
-                command = String.format("youtube-dl.exe -o \"%s\\%%(title)s.%%(ext)s\" -f %s %s",
+                command = String.format("yt-dlp.exe -o \"%s\\%%(title)s.%%(ext)s\" -f %s %s",
                         directory, formatCode, videoUrl);
             } else {
-                command = String.format("youtube-dl -o %s/\"%%(title)s.%%(ext)s\" -f %s %s",
+                command = String.format("yt-dlp -o %s/\"%%(title)s.%%(ext)s\" -f %s %s",
                         directory, formatCode, videoUrl);
             }
             log.info("command:{}", command);
