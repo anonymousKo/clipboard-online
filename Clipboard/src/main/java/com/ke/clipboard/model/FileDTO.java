@@ -4,7 +4,7 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.redis.core.RedisHash;
 
 // FileDTO class to represent file information
-@RedisHash
+@RedisHash("files")
 public class FileDTO {
     @Id
     private String id;
